@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script>
+  (function(d) {
+    var config = {
+      kitId: 'orp2zrv',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+	<style type="text/css">
+		@font-face {
+	    font-family: 'Pretendard-Regular';
+	    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+	    font-weight: 400;
+	    font-style: normal;
+		}
+		body {margin: 0}
+		section {width: 100vw; height: 100vh; background: linear-gradient(-45deg, blue, lightblue, orange, palegreen); background-size: 400% 400%; animation: color 15s ease infinite;}
+		@keyframes color{
+			0%{background-position: 0 50%;}
+			50%{background-position: 100% 50%;}
+			100%{background-position: 0 50%;}
+		}
+
+		#title {width:500px; height: 100px; position: absolute; top: 12vh; left: 50%; transform: translate(-50%, 5%); font-size: 60px; text-align: center; font-family: optique-display, sans-serif; font-weight: 400;}
+		#race{width: 800px; height: 350px; position: absolute; top: 25vh; left: 50%; transform: translate(-50%, 0%);  align-items: flex-end; display: flex; z-index: 10; background-color: white; padding-bottom: 5px;}
+		#achilles{width: 180px; height: 300px; opacity: 0; background-image: url(achilles.png); background-size: cover; position: relative; display:flex; left:20%; animation: up 0.8s forwards cubic-bezier(0,.63,.12,1) 1s; animation-delay: 1.5s; justify-content: center; font-size: 16px; font-family: optique-display, sans-serif; font-weight: 400; line-height: 140px;}
+		#turtle{width: 180px; height: 120px; background-image: url(turtle.png); background-size: cover; position: relative; display: flex; left: 40%; opacity: 0; justify-content: center; font-size: 16px; font-family: optique-display, sans-serif; font-weight: 400; animation: up 0.8s forwards cubic-bezier(0,.63,.12,1) 1s; animation-delay: 2s}
+		#guide{width: 1200px; height: 50px;  transform: translate(-50%,0%); text-align: center; position: absolute; left: 50%; top: 35vh; z-index: 15; font-size: 24px; display: none; font-family: optique-display, sans-serif; font-weight: 400; color: blue;}
+		#distMonitor{height: 100px; width: 1200px; text-align: center; position:absolute; top: 80vh; left: 50%; transform: translate(-50%,0%); font-family: optique-display, sans-serif; font-weight: 400; font-size: 20px;  display: none;} 
+
+		.textBox {width:800px; height: 150px; position: absolute; top: 75vh; left: 50%; transform: translate(-50%, -50%); font-family: 'Pretendard-Regular'; font-weight: 400; font-size: 24px;  text-align: center; line-height: 1.4;}
+		#text1{z-index: 5;}
+		#text2{z-index: 4;}
+		#text3{z-index: 3;}
+		#text4{z-index: 2;}
+		#play {width:60px; height: 40px; background: blue; position: absolute; left: 80%; top: 80vh; color: white; border-style: none; border-radius: 50%; opacity: 1; display: none; z-index: 100; font-family: optique-display, sans-serif; font-weight: 400;}
+		#really {width: 300px; height: 100px; position: absolute; left: 50%; top: 80vh; transform: translate(-50%,0%); font-size: 16px;  color: red; text-align: center;font-family: 'Pretendard-Regular'; font-weight: 400; }
+		#play:hover{background-color: red; }
+		@keyframes opacity{
+		0%{opacity:0;}
+		5%{opacity:1;}
+	}
+	@keyframes opacity2{
+		0%{opacity:0;}
+		100%{opacity:1;}
+	}
+	@keyframes display{
+		0%{opacity:1;}
+		90%{opacity:1;}
+		100%{opacity:0; display: none;}
+	}
+	@keyframes textEnd{
+		0%{opacity:1;}
+		100%{opacity:1;}
+	}
+	@keyframes move{
+	50%{transform: scale( 1.2 );}}
+
+	@keyframes race{
+		0%{}
+		100%{width: 1200px; height: 500px;}
+	}
+	@keyframes achilles{
+		0%{}
+		100%{width: 150px; height: 250px; left: 0px;}
+	}
+	@keyframes turtle{
+		0%{}
+		100%{width: 150px; height: 100px; left: 500px;}
+	}
+
+	@keyframes achilles2{
+		0%{opacity:1;}
+		50%{left:20%; opacity:1;}
+		100%{left: 0px; opacity:1;}
+	}
+	@keyframes turtle2{
+		0%{ opacity:1; }
+		50%{ left: 40%; opacity:1; }
+		100%{left: 45%; opacity:1;}
+	}
+	@keyframes achilles3{
+		0%{left: 0px; opacity:1;}
+		25%{left: 0px; opacity:1;background-image: url(achilles.png);}
+		37.5%{opacity: 1;background-image: url(achilles2.png);}
+		50%{left: 45%; opacity:1;background-image: url(achilles.png);}
+		100%{left: 45%; opacity:1;}
+	}
+	@keyframes turtle3{
+		0%{ left: 45%;opacity:1; }
+		50%{ left: 45%; opacity:1;background-image: url(turtle.png);}
+		60%{opacity: 1;background-image: url(turtle2.png);}
+		70%{opacity: 1;background-image: url(turtle.png);}
+		80%{opacity: 1;background-image: url(turtle2.png);}
+		100%{left: 50%; opacity:1; opacity: 1; background-image: url(turtle.png);}
+	}
+	@keyframes achilles4{
+
+		0%{left: 45%; opacity:1;}
+		5%,15%,25%,35%,45%,55%,65%,75%,85%,95%{opacity: 1;background-image: url(achilles2.png);}
+		10%,20%,30%,40%,50%,60%,70%,80%,90%{opacity: 1;background-image: url(achilles.png);}
+		100%{left: 75%; opacity:1;}
+	}
+	@keyframes turtle4{
+		0%{ left: 50%;opacity:1; }	
+		5%,15%,25%,35%,45%,55%,65%,75%,85%,95%{opacity: 1;background-image: url(turtle2.png);}
+		10%,20%,30%,40%,50%,60%,70%,80%,90%{opacity: 1;background-image: url(turtle.png);}
+		100%{left: 77%; opacity:1;}
+	}
+	@keyframes turtle5{
+		50%{background-image: url(turtle2.png)}
+
+	}
+	@keyframes achilles5{
+		50%{background-image: url(achilles2.png)}
+	}
+
+	@keyframes up{from{opacity: 0; top: 3000px;} to{opacity: 1;top: 0px;}}
+	</style>
+	
+</head>
+<body>
+	<section>
+		<div id="title"></div>
+		<div id="race">
+			<div id="achilles"></div>
+			<div id="turtle"></div>
+		</div>
+		<div id="guide">키보드 방향키를 이용하여 아킬레스를 움직여보세요!</div>
+		<div id="distMonitor"></div>
+		<div class="textBox" id="text1"></div>
+		<div class="textBox" id="text2"></div>
+		<div class="textBox" id="text3"></div>
+		<div class="textBox" id="text4"></div>
+		<button id="play">PLAY</button>
+		<div id="really"></div>
+	</section>
+	<script type="text/javascript">
+	
+		var contentsTimer = setInterval(print,100);
+		var contents = "아킬레우스와 거북이";
+		var contentsArr = contents.split("");
+		var s = 0;
+
+			function print(){
+				title.style.animation = "opacity 3s forwards";
+				var t = document.createElement("span");
+				t.innerHTML = contentsArr[s] + "";
+				t.className = "word";
+				s++;
+				title.appendChild(t);
+				if(s == contentsArr.length){
+					clearInterval(contentsTimer);
+				}
+			}
+		
+
+		title.onanimationend = function(){
+			var contents = "아킬레우스와 거북이는 제논의 역설 중 가장 유명한 이야기로,<br> 아킬레우스가 먼저 출발한 거북이를 절대 따라잡을 수 없다는 내용이다.";
+					
+			var contentsArr = contents.split(" ");
+			var s = 0;
+			var contentsTimer = setInterval(print,120);
+
+			function print(){
+				var t = document.createElement("span");
+				t.innerHTML = contentsArr[s] + " ";
+				t.className = "word";
+				s++;
+				text1.appendChild(t);
+				if(s == contentsArr.length){
+					clearInterval(contentsTimer);
+					text1.style.animation = "display 1.5s forwards";
+				}
+			}
+		}
+		text1.onanimationend = function(){
+			achilles.style.animation = "achilles2 2.5s forwards"
+			turtle.style.animation = "turtle2 2.5s forwards"
+			var contents = "아킬레우스가 거북이보다 10배 빨리 이동할 수 있다고 가정하고,<br>아킬레우스보다 거북이를 100m 앞에서 출발 시켜보자.";
+					
+			var contentsArr = contents.split(" ");
+			var s = 0;
+			var contentsTimer = setInterval(print,120);
+
+			function print(){
+				var t = document.createElement("span");
+				t.innerHTML = contentsArr[s] + " ";
+				t.className = "word";
+				s++;
+				text2.appendChild(t);
+				if(s == contentsArr.length){
+					clearInterval(contentsTimer);
+					text2.style.animation = "display 1.5s forwards";
+					
+				}
+			}
+		}
+		text2.onanimationend = function(){
+			achilles.style.animation = "achilles3 2s forwards"
+			turtle.style.animation = "turtle3 3.5s forwards"
+			var contents = "아킬레우스가 100m를 달려가면 거북이는 10m를 가고,<br>거북이를 따라잡기 위해 아킬레우스가 10m를 가면<br>그동안 거북이는 다시 1m를 나아간다.";
+					
+			var contentsArr = contents.split(" ");
+			var s = 0;
+			var contentsTimer = setInterval(print,120);
+
+			function print(){
+				var t = document.createElement("span");
+				t.innerHTML = contentsArr[s] + " ";
+				t.className = "word";
+				s++;
+				text3.appendChild(t);
+				if(s == contentsArr.length){
+					clearInterval(contentsTimer);
+					text3.style.animation = "display 1.5s forwards";
+					
+				}
+			}
+		}
+		text3.onanimationend = function(){
+			race.style.overflow="hidden";
+			achilles.style.animation = "achilles4 10s forwards"
+			turtle.style.animation = "turtle4 10s forwards"
+			var contents = "아킬레우스가 거북이를 따라잡기 위해 달리는 동안<br> 거북이 역시 움직이므로 <br>아킬레우스는 영원히 거북이를 따라잡을 수 없다.";
+					
+			var contentsArr = contents.split(" ");
+			var s = 0;
+			var contentsTimer = setInterval(print,120);
+
+			function print(){
+				var t = document.createElement("span");
+				t.innerHTML = contentsArr[s] + " ";
+				t.className = "word";
+				s++;
+				text4.appendChild(t);
+				if(s == contentsArr.length){
+					clearInterval(contentsTimer);
+					text4.style.animation = "textEnd 1s forwards";
+					
+				}
+			}
+		}
+
+		text4.onanimationend = function(){
+			var contents = "...정말 그럴까? <br>버튼을 클릭하여 직접 플레이 해보세요!";
+					
+			var contentsArr = contents.split(" <br>");
+			var s = 0;
+			var contentsTimer = setInterval(print,500);
+
+			function print(){
+				var t = document.createElement("span");
+				t.innerHTML = contentsArr[s] + " <br>";
+				t.className = "word";
+				s++;
+				really.appendChild(t);
+				if(s == contentsArr.length){
+					clearInterval(contentsTimer);
+					play.style.display = "block";
+					play.style.animation = "opacity2 1.5s forwards";
+					
+				}
+			}
+		}
+		play.onanimationend = function(){
+			play.style.animation = "move 1s cubic-bezier(.17,.67,.71,1.15) infinite";
+		
+			play.onclick = function(){
+				achilles.style.opacity = "1";
+				turtle.style.opacity = "1";
+				turtle.style.width = "150px";
+				turtle.style.height = "100px";
+				achilles.style.width = "150px";
+				achilles.style.height = "250px";
+				achilles.style.animation = "achilles 0.5s ease-in";
+				turtle.style.animation = "turtle 0.5s ease-in";
+				achilles.style.left = 0;
+				race.style.animation = "race 0.5s ease-in forwards";
+				guide.style.display = "block";
+				guide.style.animation = "opacity2 1s forwards";
+				race.style.overflow = "hidden";
+				distMonitor.style.display = "block";
+				play.style.display = "none";
+				really.style.display = "none";
+				text4.style.display = "none";
+
+				
+
+			}
+		}
+
+		guide.onanimationend = function(){
+		
+			//경주
+
+			let distance = 500;
+	                let forward = 80;
+	                let achillesRatio = 0.5;
+	                let achillesRatio2 = 2;
+	                let turtleDistance = distance;
+	                let achillesDistance = 0;
+	                let i = 0;
+	                let achillesBack = [0, 290, 475, 607.5, 713.75, 806.875, 893.4375, 976.71875, 1058.359375, 1139.1796875, 1219.58984375]
+	            
+	                turtle.style.left = turtleDistance + "px";
+	                window.onkeydown = function(e){
+
+	                	guide.style.display = "none";
+	                	
+	                	
+	                        if(e.keyCode == 39 && i < 10){
+	                        	
+		                        console.log("enter!!" + turtleDistance + "px " + achillesDistance + "px");
+
+		                         i++;
+		                        if(i == 1 || i == 3 || i ==5 || i == 7){
+		                        	turtle.style.backgroundImage =  "url('turtle2.png')" ;
+		                        	achilles.style.backgroundImage = "url('achilles2.png')";
+		                        }
+		                       if(i == 2 || i == 4 || i ==6 || i == 8){
+		                        	turtle.style.backgroundImage =  "url('turtle.png')" ;
+		                        	achilles.style.backgroundImage = "url('achilles.png')";
+		                        }
+
+		                        turtleDistance += forward; 
+		                        turtle.style.left = turtleDistance + "px";
+		                        turtle.style.transform = "rotateY(0deg)";
+		                        achillesDistance += (turtleDistance - achillesDistance) * achillesRatio;
+		                        achilles.style.left = achillesDistance + "px";
+		                        achilles.style.transform = "rotateY(0deg)";
+		                       
+		                        
+					
+		                        if (turtleDistance == 1140){
+		                        	alert("경주에서 졌습니다.");
+
+		                        }
+				
+		                }
+		                 if(e.keyCode == 37 && i > 0){
+		                 	if(i == 1 || i == 3 || i ==5 || i == 7){
+		                        	turtle.style.backgroundImage =  "url('turtle4.png')" ;
+		                        	achilles.style.backgroundImage = "url('achilles4.png')";
+		                        }
+		                       if(i == 2 || i == 4 || i ==6 || i == 8){
+		                        	turtle.style.backgroundImage =  "url('turtle3.png')" ;
+		                        	achilles.style.backgroundImage = "url('achilles3.png')";
+		                        }
+		                 	
+		                        console.log("back" + turtleDistance + "px " + achillesDistance + "px")
+		                        i--;
+		                        turtleDistance -= forward; 
+		                        turtle.style.left = turtleDistance + "px";
+		                        
+
+		                      
+		                        achillesDistance = achillesBack[i];
+		                        achilles.style.left = achillesDistance + "px";
+		                       
+		                       
+		       
+		                }
+		               
+		    
+		                 if (i <= 0 || i >= 8){
+		                        turtleDistance = 500
+		                        turtle.style.left = turtleDistance + "px";
+		                      
+		                        achillesDistance = 0;
+		                        achilles.style.left = achillesDistance + "px";
+		                        	 i = 0;
+		                        }
+				 console.log(i);
+				 achilles.innerHTML = achillesDistance;
+				 turtle.innerHTML = turtleDistance;
+
+				distMonitor.innerHTML = " 둘 사이의 거리 : " + (turtleDistance - achillesDistance) + "px" ; 
+
+		        }
+
+		}
+		
+
+
+	</script>
+
+</body>
+</html>
